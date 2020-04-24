@@ -6,15 +6,10 @@ import { Observable } from 'rxjs'; //httpclient.get returns Observable objects
   providedIn: 'root'
 })
 export class RemoteService {
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) { }
 
-//Gets data from local JSON file
-  getLocalData() {
-    return this.http.get("/assets/filmlog.json"); //returns Observable
+  //takes name of film as string, returns search results as Observable object
+  SearchFilm(name:String):Observable<any> {
+    return this.http.get('https://www.omdbapi.com/?apikey=2d21296c&s='+name); //returns Observable
   }
-
-  getRemoteData() {
-    return this.http.get("/assets/filmlog.json"); //returns Observable
-  }
-
 }

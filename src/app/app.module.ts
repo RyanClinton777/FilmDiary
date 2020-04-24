@@ -11,12 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 //Import http client module to make the http client available in the entire app
 import { HttpClientModule } from '@angular/common/http';
+//ionic storage
+import { IonicStorageModule } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  //add httpclientmodule to imports
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  //add httpclientmodule, ionicstoragemodule to imports
+  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,

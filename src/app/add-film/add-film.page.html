@@ -1,23 +1,38 @@
 <!-- 
-  Page first opens an ion-modal, from which the user searches for and selects their movie. 
-  Then the modal closes, and the user enters the info for this entry, rating and note
+  Page first lets user search for and select their movie.
+  Then a modal opens, and the user enters the info for this entry, rating and note, and adds it to storage.
  -->
-
 <ion-header>
   <ion-toolbar>
     <ion-title>AddFilm</ion-title>
-    <!-- BACK BUTTON -->
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref=""> BACK </ion-back-button>
-  </ion-buttons>
   </ion-toolbar> 
 </ion-header>
 
+<ion-content fullscreen>
 
-<ion-grid>
-  <section>
-    <header>Block Width</header>
-    <ion-button expand="full">A block button</ion-button>
-  </section>
 
-</ion-grid>
+        <ion-input [(ngModel)]="input" placeholder="Type movie name" (width)=100></ion-input>
+
+        <ion-button label="btnsearch" (click)="search()" (width)=100 >Search</ion-button>
+
+
+
+<ion-list results>
+  <!-- For each film, showwith the poster on the left, and the info on the right -->
+  <div *ngFor="let film of filmData" style="border-style: none;">
+    <ion-item (click)="select(film.imdbID)">
+        <!-- Sub grid -->
+        <!-- Show poster thumbnail -->
+            <ion-thumbnail slot="start">
+              <img src={{film.Poster}}> 
+            </ion-thumbnail> 
+        <!-- label containing details -->
+            <ion-label>
+              <!-- Movie name (year) -->
+            <h2>{{film.Title}} ({{film.Year}})</h2>
+          </ion-label>
+    </ion-item>
+  </div>
+</ion-list>
+
+</ion-content>

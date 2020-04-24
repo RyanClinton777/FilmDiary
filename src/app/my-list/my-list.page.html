@@ -1,29 +1,31 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-title>MyList</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-grid>
-  <!-- <ion-item>
-  <ion-thumbnail item-start>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Ulster.svg">
-  </ion-thumbnail>
-  <h2>Ulster</h2>
-  <p>Donegal, Cavan, Monaghan, Fermanagh, Tyrone, Derry, Antrim, Down, Armagh</p>
-  <ion-button item-end>View</ion-button>
-  </ion-item> 
-  DO SCRIPT HERE THAT IS A FOR EACH LOOP, -->
-  <div *ngFor="let film of filmData" style="border-style: none;">
-    <ion-row>
-      <div style="border-style: none;">
-          <h2>{{film.Title}}</h2>
-          <ion-thumbnail item-start>
-            <img src={{film.Poster}}>
-            </ion-thumbnail>
-          <hr>
-      </div>
-    </ion-row>
-  </div>
-</ion-grid>
-  
+<ion-content label="results" fullscreen>
+
+  <ion-list>
+    <!--For each film, showwith the poster on the left, and the info on the right -->
+    <div *ngFor="let film of filmData" style="border-style: none;">
+      <ion-item>
+          <!-- Sub grid -->
+          <!-- Show poster thumbnail -->
+              <ion-thumbnail slot="start">
+                <img src={{film.Poster}}> 
+              </ion-thumbnail> 
+          <!-- label containing details -->
+              <ion-label>
+                <!-- Movie name (year) -->
+              <h2>{{film.Title}} ({{film.Year}})</h2>
+               <!-- Myrating/5 - watched DateWatched -->
+              <p>{{film.MyRating}}/5 - Watched {{film.DateWatched}}</p>
+              <p>{{film.MyNote}}</p>
+            </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+</ion-content>
