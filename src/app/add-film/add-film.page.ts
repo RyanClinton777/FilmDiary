@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage'; //
 import { RemoteService } from '../services/remote.service'; //import our service for using API
-import { AfterViewInit, ElementRef} from '@angular/core'; //for event listener
-
-
+import { ModalController } from '@ionic/angular'; //control Modal
+import { EnterDetailsPage } from '../modals/enter-details/enter-details.page'; //modal page
 
 @Component({
   selector: 'app-add-film',
@@ -13,9 +12,8 @@ import { AfterViewInit, ElementRef} from '@angular/core'; //for event listener
 export class AddFilmPage implements OnInit {
   filmData: any = []; //will hold data about films
   input:String = ""; //user input, to use in search
-  filmID:String; //holds ID of the film the user selects
 
-  constructor(private storage: Storage, private service: RemoteService) { }
+  constructor(private storage: Storage, private service: RemoteService, public modalController: ModalController ) { }
 
   ngOnInit() {}
 
@@ -31,9 +29,35 @@ export class AddFilmPage implements OnInit {
     });
   }
 
-  select(str: String) {
-    console.log("Selected film with ID: "+str);
-    this.filmID = str; //store the ID
+  //takes in ID, title and year of the movie that is selected in the list, opens a modal where the user can enter their diary entry for it.
+  select(ID: String, title:String, year:String) {
+    console.log("Selected film with ID: "+ID);
+    
+    //open modal with the details for this movie, allow user to enter personalised ones
+    this.presentModal();
   }
 
-}
+    //Adapted from ionic docs
+  async presentModal() {
+    //component props are how we pass in data to the modal - 'VarName': 'Data'
+    const modal = await this.modalController.create({
+      component: EnterDetailsPage,
+      componentProps: {
+        'id': 'Douglas',
+        'title': 'Adams',
+        'year': 'N'
+      }
+    });
+    return await modal.present();
+  }
+
+    //Adapted from ionic docs
+  dismissModal() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalController.dismiss({
+      'dismissed': true
+    });
+  }
+
+}//end of class

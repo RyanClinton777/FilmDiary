@@ -13,11 +13,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 //ionic storage
 import { IonicStorageModule } from '@ionic/storage';
+import { EnterDetailsPage } from './modals/enter-details/enter-details.page';// for modal
 
-
+//added enterdetailspage to declarations and entrycomponents to make it work
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, EnterDetailsPage],
+  entryComponents: [EnterDetailsPage],
   //add httpclientmodule, ionicstoragemodule to imports
   imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [

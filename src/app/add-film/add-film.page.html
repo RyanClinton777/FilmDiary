@@ -4,23 +4,21 @@
  -->
 <ion-header>
   <ion-toolbar>
-    <ion-title>AddFilm</ion-title>
+    <ion-title>Select your film</ion-title>
   </ion-toolbar> 
 </ion-header>
 
 <ion-content fullscreen>
 
-
-        <ion-input [(ngModel)]="input" placeholder="Type movie name" (width)=100></ion-input>
-
-        <ion-button label="btnsearch" (click)="search()" (width)=100 >Search</ion-button>
-
-
+  <!-- Takes in input into String "input". -->
+  <ion-input class="ion-text-center" [(ngModel)]="input" expand="full" placeholder="Type movie name" (width)=100></ion-input>
+  <!-- search method populates array with results from API. does nothing if input is blank. -->
+  <ion-button class="ion-text-center" expand="full" label="btnsearch" text (click)="search()" (width)=100 >Search</ion-button>
 
 <ion-list results>
   <!-- For each film, showwith the poster on the left, and the info on the right -->
   <div *ngFor="let film of filmData" style="border-style: none;">
-    <ion-item (click)="select(film.imdbID)">
+    <ion-item (click)="select(film.imdbID, film.Title, film.Year)">
         <!-- Sub grid -->
         <!-- Show poster thumbnail -->
             <ion-thumbnail slot="start">

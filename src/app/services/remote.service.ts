@@ -12,4 +12,5 @@ export class RemoteService {
   SearchFilm(name:String):Observable<any> {
     return this.http.get('https://www.omdbapi.com/?apikey=2d21296c&s='+name); //returns Observable
   }
+
 }
