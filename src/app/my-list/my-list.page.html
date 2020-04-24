@@ -4,6 +4,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-</ion-content>
+<ion-grid>
+  <!-- <ion-item>
+  <ion-thumbnail item-start>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Ulster.svg">
+  </ion-thumbnail>
+  <h2>Ulster</h2>
+  <p>Donegal, Cavan, Monaghan, Fermanagh, Tyrone, Derry, Antrim, Down, Armagh</p>
+  <ion-button item-end>View</ion-button>
+  </ion-item> 
+  DO SCRIPT HERE THAT IS A FOR EACH LOOP, -->
+  <div *ngFor="let film of filmData" style="border-style: none;">
+    <ion-row>
+      <div style="border-style: none;">
+          <h2>{{film.Title}}</h2>
+          <ion-thumbnail item-start>
+            <img src={{film.Poster}}>
+            </ion-thumbnail>
+          <hr>
+      </div>
+    </ion-row>
+  </div>
+</ion-grid>
+  

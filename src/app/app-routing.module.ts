@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
   },
+  {
+    path: 'search-film',
+    loadChildren: () => import('./modals/search-film/search-film.module').then( m => m.SearchFilmPageModule)
+  },
 ];
 
 @NgModule({

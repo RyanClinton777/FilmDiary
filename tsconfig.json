@@ -7,6 +7,8 @@
     "declaration": false,
     "module": "esnext",
     "moduleResolution": "node",
+    "resolveJsonModule": true /*Allows local json files to be imported, gatekeeping feature.*/,
+    "allowSyntheticDefaultImports": true /*had to enable for local json*/,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
