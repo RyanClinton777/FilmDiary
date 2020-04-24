@@ -18,7 +18,7 @@
 <ion-list results>
   <!-- For each film, showwith the poster on the left, and the info on the right -->
   <div *ngFor="let film of filmData" style="border-style: none;">
-    <ion-item (click)="select(film.imdbID, film.Title, film.Year)">
+    <ion-item (click)="select(film.imdbID, film.Title, film.Year, film.poster)">
         <!-- Sub grid -->
         <!-- Show poster thumbnail -->
             <ion-thumbnail slot="start">

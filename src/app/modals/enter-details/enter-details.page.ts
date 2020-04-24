@@ -19,6 +19,7 @@ export class EnterDetailsPage {
     @Input() id: string;
     @Input() title: string;
     @Input() year: string;
+    @Input() poster: string;
     //variables
     date:string;
     rating:number;
@@ -63,6 +64,7 @@ export class EnterDetailsPage {
       this.newFilm.datewatched = this.date;
       this.newFilm.rating = this.rating;
       this.newFilm.note = this.note;
+      this.newFilm.posterurl = this.poster;
 
       this.storageService.test();
 

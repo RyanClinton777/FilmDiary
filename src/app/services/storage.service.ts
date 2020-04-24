@@ -10,7 +10,7 @@ export interface Film {
   datewatched: string
   rating: number,
   note: string,
-  //posterurl: string
+  posterurl: string
 }
 
 const KEY = 'film-log';
