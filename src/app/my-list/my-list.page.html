@@ -7,6 +7,8 @@
 
 <ion-content label="results" fullscreen>
 
+
+
   <ion-list>
     <!--For each film, showwith the poster on the left, and the info on the right -->
     <div *ngFor="let film of filmData" style="border-style: none;">
@@ -14,15 +16,15 @@
           <!-- Sub grid -->
           <!-- Show poster thumbnail -->
               <ion-thumbnail slot="start">
-                <img src={{film.Poster}}> 
+                <img src={{film.poster}}> 
               </ion-thumbnail> 
           <!-- label containing details -->
               <ion-label>
                 <!-- Movie name (year) -->
-              <h2>{{film.Title}} ({{film.Year}})</h2>
+              <h2>{{film.title}} ({{film.year}})</h2>
                <!-- Myrating/5 - watched DateWatched -->
-              <p>{{film.MyRating}}/5 - Watched {{film.DateWatched}}</p>
-              <p>{{film.MyNote}}</p>
+              <p>{{film.rating}}/5 - Watched {{film.datewatched}}</p>
+              <p>{{film.note}}</p>
             </ion-label>
       </ion-item>
     </div>

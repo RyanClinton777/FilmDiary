@@ -6,18 +6,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <div id="container">
     <ion-title>
-      Film Diary
+      <h1>Film Diary</h1>
     </ion-title>
+    <br>
+    <br>
+    <br>
 
-    <!-- Navigation -->
-    <ion-list>
+    <!-- Navigation - Code to center buttons adapted from code I found on stackexchange-->
+        <div class="row">
+          <div class="col text-center">
         <ion-button expand="full" color="primary" routerLink="/add-film" routerDirection="root"> Log a film </ion-button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-center">
         <ion-button expand="full" color="primary" routerLink="/my-list" routerDirection="root"> View my list </ion-button>
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col text-center">
         <ion-button expand="full" color="primary" routerLink="/about" routerDirection="forward"> about/settings </ion-button>
-    </ion-list>
+      </div>
+    </div>
     
   </div>
 </ion-content>

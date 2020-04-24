@@ -15,12 +15,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { EnterDetailsPage } from './modals/enter-details/enter-details.page';// for modal
 
+import { FormsModule } from '@angular/forms';//for 2 way data-binding
+
 //added enterdetailspage to declarations and entrycomponents to make it work
 @NgModule({
   declarations: [AppComponent, EnterDetailsPage],
   entryComponents: [EnterDetailsPage],
   //add httpclientmodule, ionicstoragemodule to imports
-  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,

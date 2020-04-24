@@ -31,21 +31,19 @@ export class AddFilmPage implements OnInit {
 
   //takes in ID, title and year of the movie that is selected in the list, opens a modal where the user can enter their diary entry for it.
   select(ID: String, title:String, year:String) {
-    console.log("Selected film with ID: "+ID);
-    
     //open modal with the details for this movie, allow user to enter personalised ones
-    this.presentModal();
+    this.presentModal(ID, title, year);
   }
 
     //Adapted from ionic docs
-  async presentModal() {
+  async presentModal(ID: String, title:String, year:String) {
     //component props are how we pass in data to the modal - 'VarName': 'Data'
     const modal = await this.modalController.create({
       component: EnterDetailsPage,
       componentProps: {
-        'id': 'Douglas',
-        'title': 'Adams',
-        'year': 'N'
+        'id': ID,
+        'title': title,
+        'year': year
       }
     });
     return await modal.present();
